@@ -4,7 +4,7 @@ import { assets } from '../../assets/assets'
 
 const AppDownload = () => {
   return (
-    <div className='app-download' id='app-donwload'>
+    <div className='app-download' id='app-download'>
       <p>For better experince download your app <br/>aatao App
       <div className="app-download-platforms">
         <img src={assets.play_store} alt="" /><img src={assets.app_store} alt="" />
@@ -14,4 +14,4 @@ const AppDownload = () => {
   )
 }
 
-export default AppDownload
+export default AppDownload;

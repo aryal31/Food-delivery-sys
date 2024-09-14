@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import './LoginPopup.css'
+import {assets} from '../../assets/assets'
 
-const LoginPopup = () => {
 
-  const [currState, setCurrState] = useState("Sign Up")
+const LoginPopup = ({setShowLogin}) => {
+
+  const [currState, setCurrState] = useState("Login")
   return (
     <div className="login-popup">
       <form 
@@ -14,7 +16,24 @@ const LoginPopup = () => {
               currState
             }
           </h2>
+          <img onClick={()=>setShowLogin(false)} src={assets.cross_icon} alt="" />
         </div>
+        <div className="login-popup-inputs">
+          {currState === 'Login' ? <></>:<input type="text" placeholder='your name ' required/>} 
+          <input type="email" placeholder='your email' required />
+          <input type="password" placeholder='Password' required />
+
+        </div>
+        <button>{currState==='Sign Up' ? 'Create account':'Login'}</button>
+        <div className="login-popup-condition">
+          <input type="checkbox" required/>
+          <p>By continuing, i agree to the terms and conditions of use and privacy policy</p>
+        </div>
+        {currState==="Login"?<p>creata a new account ?<span onClick={()=>setCurrState("Sign Up")}>CLICK HERE</span></p>
+        : <p>Already have a account? <span onClick={()=>setCurrState("Login")}>login here</span> </p>
+        }
+        
+       
        </form>
     </div>
   )
